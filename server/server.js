@@ -6,9 +6,7 @@ const { Server } = require("socket.io");
 const io = new Server(server);
 const port = 6789;
 
-app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/index.html');
-});
+app.use(express.static(__dirname + '/'));
 
 io.on('connection', (socket) => {
   socket.on('chat message', (msg) => {
