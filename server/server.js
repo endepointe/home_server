@@ -9,6 +9,7 @@ const port = 6789;
 app.use(express.static(__dirname + '/'));
 
 io.on('connection', (socket) => {
+	console.log('user connected');
   socket.on('chat message', (msg) => {
     io.emit('chat message', msg);
   });
